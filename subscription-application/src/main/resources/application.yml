@@ -1,0 +1,43 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: subscription-app
+    
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 30000
+        readTimeout: 30000
+        loggerLevel: basic    
+
+security:
+    basic:
+      enabled: false
+    oauth2:
+      resource:
+        user-info-uri: http://localhost:8096/user 
+      client:
+        authorized-grant-types:
+        - client_credentials
+        client-secret: $ubscR1pT10NCl13nt
+        client-id: subscription-service
+        access-token-uri: http://localhost:8096/oauth/token
+        user-authorization-uri: http://localhost:8096/oauth/authorize
+
+eureka: 
+  client:
+    service-url:
+      defaultZone: http://localhost:8872/eureka/
+
+subscription: 
+  endpoint: http://localhost:8085/subscription-service/api/subscription
+  
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG

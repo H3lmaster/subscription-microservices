@@ -1,0 +1,23 @@
+server:
+    port: 8096
+    contextPath: /auth
+    
+spring:
+  application:
+    name: auth-server    
+    
+security:
+    user:
+      name: microservicesAUth
+      password: $ubscR1pT10N
+    oauth2:
+      client:
+        clientId: subscription-service
+        clientSecret: $ubscR1pT10NCl13nt
+        authorized-grant-type: client_credentials
+        scope: openid
+        
+eureka: 
+  client:
+    service-url:
+      defaultZone: http://localhost:8872/eureka/

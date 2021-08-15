@@ -1,0 +1,236 @@
+{
+	"variables": [],
+	"info": {
+		"name": "subscription",
+		"_postman_id": "2691ff35-e02e-5f29-beef-6ad4c0d08732",
+		"description": "Subscription Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Subscription Service",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Subscription",
+					"request": {
+						"url": "http://localhost:8085/subscription-service/api/subscription/create",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer a6de42b1-dbcc-4895-86da-f978f3e5b8ac",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"ted@dispostable.com\",\n\t\"firstName\": \"Bob\",\n\t\"gender\": \"Male\",\n\t\"dateOfBirth\":\"2002-08-09T18:54:36.829Z\",\n\t\"consent\": true,\n\t\"newsletterId\": \"23423456\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Post Subscription",
+					"request": {
+						"url": "http://localhost:8085/subscription-service/api/subscription",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer a6de42b1-dbcc-4895-86da-f978f3e5b8ac",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@dispostable.com\",\n\t\"firstName\": \"Robert\",\n\t\"gender\": \"Male\",\n\t\"dateOfBirth\":\"2002-08-09T18:54:36.829Z\",\n\t\"consent\": true,\n\t\"newsletterId\": \"234234\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Subscription",
+					"request": {
+						"url": "http://localhost:8085/subscription-service/api/subscription/",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get subscriptions",
+					"request": {
+						"url": "http://localhost:8085/subscription-service/api/subscription/",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get subscription by Id",
+					"request": {
+						"url": "http://localhost:8085/subscription-service/api/subscription/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription Application",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Subscriptions",
+					"request": {
+						"url": "http://localhost:8085/subscription-app/app/api/subscription/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2938ab18-fba7-4eb0-a09b-c863f8faffea",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Subscription",
+					"request": {
+						"url": "http://localhost:8085/subscription-app/app/api/subscription",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"robert@dispostable.com\",\n\t\"firstName\": \"Robert\",\n\t\"gender\": \"Male\",\n\t\"dateOfBirth\":\"2002-08-09T18:54:36.829Z\",\n\t\"consent\": true,\n\t\"newsletterId\": 234234\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Subscription",
+					"request": {
+						"url": "http://localhost:8085/subscription-app/app/api/subscription/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subscription",
+					"request": {
+						"url": "http://localhost:8085/subscription-app/app/api/subscription/2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer 2938ab18-fba7-4eb0-a09b-c863f8faffea",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Server",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Token",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8096/oauth/token?grant_type=client_credentials",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8096",
+							"path": [
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "client_id",
+									"value": "subscriptionService",
+									"equals": true,
+									"description": "",
+									"disabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "$ubscR1pT10NCl13nt",
+									"equals": true,
+									"description": "",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"equals": true,
+									"description": "",
+									"disabled": true
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c3Vic2NyaXB0aW9uLXNlcnZpY2U6JHVic2NSMXBUMTBOQ2wxM250",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

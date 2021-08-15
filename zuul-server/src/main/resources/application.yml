@@ -1,0 +1,28 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: zuul-server
+
+zuul:
+  sensitive-headers:
+  - Cookie
+  - Set-Cookie
+  host:
+    connect-timeout-millis: 15000
+    socket-timeout-millis: 15000
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health    
+  client:
+    service-url:
+      defaultZone: http://localhost:8872/eureka/
+      
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
