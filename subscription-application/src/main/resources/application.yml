@@ -20,22 +20,22 @@ security:
       enabled: false
     oauth2:
       resource:
-        user-info-uri: http://localhost:8096/user 
+        user-info-uri: http://auth-server:8096/user 
       client:
         authorized-grant-types:
         - client_credentials
         client-secret: $ubscR1pT10NCl13nt
         client-id: subscription-service
-        access-token-uri: http://localhost:8096/oauth/token
-        user-authorization-uri: http://localhost:8096/oauth/authorize
+        access-token-uri: http://auth-server:8096/oauth/token
+        user-authorization-uri: http://auth-server:8096/oauth/authorize
 
 eureka: 
   client:
     service-url:
-      defaultZone: http://localhost:8872/eureka/
+      defaultZone: http://eureka-server:8872/eureka/
 
 subscription: 
-  endpoint: http://localhost:8085/subscription-service/api/subscription
+  endpoint: http://zuul-server:8085/subscription-service/api/subscription
   
 logging:
   level:

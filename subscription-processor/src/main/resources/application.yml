@@ -5,7 +5,7 @@ spring:
   application:
     name: subscription-processor
   rabbitmq:
-    addresses: localhost:5672
+    addresses: rabbitmq:5672
     username: guest
     password: guest
     template:
@@ -28,18 +28,18 @@ security:
             clientSecret: $ubscR1pT10NCl13nt
             authorized-grant-type: client_credentials
             scope: openid
-            token-uri: http://localhost:8096/oauth/token
+            token-uri: http://auth-server:8096/oauth/token
 
 adapter:
   max-retry: 10
 
 subscription-service:
-  endpoint: http://localhost:8085/subscription-service/api/subscription/
+  endpoint: http://zuul-server:8085/subscription-service/api/subscription/
   
 eureka: 
   client:
     service-url:
-      defaultZone: http://localhost:8872/eureka/
+      defaultZone: http://eureka-server:8872/eureka/
       
 logging:
   level:

@@ -32,7 +32,7 @@ The Postman collection contains all the rest calls available in the solution.
 - Install Docker and Docker Compose.
 - Build the project: mvn clean package [-DskipTests]
 - Build the docker images: ./buildDockerImages.sh
-- Run the container using docker compose: docker-compose up
+- Run the container using docker compose: docker-compose up -d
 
 
 ## TODOS

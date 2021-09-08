@@ -5,7 +5,7 @@ spring:
   application:
     name: email-service
   rabbitmq:
-    addresses: localhost:5672
+    addresses: rabbitmq:5672
     username: guest
     password: guest
     template:
@@ -24,7 +24,7 @@ adapter:
 eureka: 
   client:
     service-url:
-      defaultZone: http://localhost:8872/eureka/
+      defaultZone: http://eureka-server:8872/eureka/
       
 logging:
   level:

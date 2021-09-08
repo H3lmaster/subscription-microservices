@@ -21,7 +21,7 @@ public class SubscriptionClientFallback implements SubscriptionClient {
 	}
 
 	@Override
-	public Subscription getSubscription(@PathVariable("id") Long id) {
+	public Subscription getSubscription(@PathVariable("id") String id) {
 		return null;
 	}
 
@@ -31,7 +31,7 @@ public class SubscriptionClientFallback implements SubscriptionClient {
 	}
 
 	@Override
-	public Subscription cancelSubscription(@PathVariable("id") Long id) {
+	public Subscription cancelSubscription(@PathVariable("id") String id) {
 		return null;
 	}
 

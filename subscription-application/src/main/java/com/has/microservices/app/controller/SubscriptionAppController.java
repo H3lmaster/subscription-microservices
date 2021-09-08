@@ -31,7 +31,7 @@ public class SubscriptionAppController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Subscription> getSubscription(Long id) {
+	public ResponseEntity<Subscription> getSubscription(String id) {
 		Subscription subscription = subscriptionClient.getSubscription(id);
 		
 		if ( subscription == null ) {
@@ -53,7 +53,7 @@ public class SubscriptionAppController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Subscription> cancelSubscription(@PathVariable Long id) {
+	public ResponseEntity<Subscription> cancelSubscription(@PathVariable String id) {
 		Subscription subscription = subscriptionClient.cancelSubscription(id);
 		
 		if ( subscription == null ) {

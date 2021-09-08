@@ -74,7 +74,7 @@ public class SubscriptionControllerTest {
 	
 	@Test
 	public void whenGetByUnkownIdThenStatusIsNotFound() throws Exception {
-		when(subscriptionRepository.findById((long) 1)).thenReturn(Optional.empty());
+		when(subscriptionRepository.findById("0")).thenReturn(Optional.empty());
 		
 		this.mockMvc.perform(get(PATH + "/0"))
 					.andExpect(status().isNotFound());
@@ -164,7 +164,7 @@ public class SubscriptionControllerTest {
 	
 	@Test
 	public void whenDeleteThenStatusIsOk() throws Exception {
-		when(subscriptionRepository.findById((long) 1))
+		when(subscriptionRepository.findById("1"))
 			.thenReturn(Optional.of(new SubscriptionBuilder().withId("fdasdf-adfas")
 					.build()));
 		
@@ -174,7 +174,7 @@ public class SubscriptionControllerTest {
 	
 	@Test
 	public void whenDeleteByUnkownIdThenStatusIsNotFound() throws Exception {
-		when(subscriptionRepository.findById((long) 1)).thenReturn(Optional.empty());
+		when(subscriptionRepository.findById("1")).thenReturn(Optional.empty());
 		
 		this.mockMvc.perform(delete(PATH + "/1"))
 					.andExpect(status().isNotFound());

@@ -44,7 +44,7 @@ public class SubscriptionController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Subscription> get(@PathVariable Long id) {
+	public ResponseEntity<Subscription> get(@PathVariable String id) {
 	
 		Optional<Subscription> subscription = subscriptionRepository.findById(id);
 		
@@ -80,7 +80,7 @@ public class SubscriptionController {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Subscription> delete(@PathVariable Long id) {
+	public ResponseEntity<Subscription> delete(@PathVariable String id) {
 		
 		Optional<Subscription> subscription = subscriptionRepository.findById(id);
 		

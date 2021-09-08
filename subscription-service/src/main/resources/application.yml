@@ -5,7 +5,7 @@ server:
 eureka: 
   client:
     service-url:
-      defaultZone: http://localhost:8872/eureka/
+      defaultZone: http://eureka-server:8872/eureka/
     
 security:
     oauth2:
@@ -14,10 +14,10 @@ security:
         - client_credentials
         client-secret: $ubscr1Pt10N
         client-id: subscription-service
-        access-token-uri: http://localhost:8096/oauth/token
-        user-authorization-uri: http://localhost:8096/oauth/authorize
+        access-token-uri: http://auth-server:8096/oauth/token
+        user-authorization-uri: http://auth-server:8096/oauth/authorize
       resource:
-        user-info-uri: http://localhost:8096/user
+        user-info-uri: http://auth-server:8096/user
             
 
 spring:     
@@ -28,7 +28,7 @@ spring:
     username: test
     password: test
   rabbitmq:
-    addresses: localhost:5672
+    addresses: rabbitmq:5672
     username: guest
     password: guest
     template:

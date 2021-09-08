@@ -25,11 +25,11 @@ public interface SubscriptionClient {
 	List<Subscription> getSubscriptions();
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	Subscription getSubscription(@PathVariable("id") Long id);
+	Subscription getSubscription(@PathVariable("id") String id);
 	
 	@PostMapping
 	Subscription submitSubscription(Subscription subscription);
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	Subscription cancelSubscription(@PathVariable("id") Long id);
+	Subscription cancelSubscription(@PathVariable("id") String id);
 }
